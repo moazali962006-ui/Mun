@@ -198,3 +198,26 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+document.addEventListener('keydown', function(e) {
+    const sections = {
+        '1': '#home',
+        '2': '#about',
+        '3': '.diplomatic-toolkit',
+        '4': '.about-gallery',
+        '5': '#schedule',
+        '6': '#committees',
+        '7': '#delegates',
+        '8': '#hierarchy'
+    };
+
+    if (sections[e.key]) {
+        e.preventDefault();
+        const target = document.querySelector(sections[e.key]);
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    }
+});
